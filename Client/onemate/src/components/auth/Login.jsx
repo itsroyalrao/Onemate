@@ -8,10 +8,10 @@ function Login() {
   }, []);
   return (
     <>
-      <div className="bg-gradient-to-r from-red-600 to-blue-600 min-h-screen flex flex-col items-center justify-center">
+      <div className="bg-[rgb(39,39,39)] min-h-screen flex flex-col items-center justify-center">
         <div
           id="login-block"
-          className="w-72 h-48 bg-blue-900 flex flex-col items-center rounded-3xl shadow-lg shadow-blue-800"
+          className="w-[270px] h-48 bg-blue-900 flex flex-col items-center rounded-3xl shadow-md shadow-white"
         >
           <img
             className="w-20 h-20 -my-10 rounded-full"
@@ -22,35 +22,29 @@ function Login() {
             <input
               type="email"
               id="email"
-              className="rounded-lg px-3 py-1 placeholder:italic"
+              className="rounded-lg px-3 py-1 placeholder:italic focus:outline-none focus:outline-blue-600"
               placeholder="Email ID"
               autoComplete="email"
             />
             <input
               type="password"
               id="password"
-              className="rounded-lg px-3 py-1 placeholder:italic"
+              className="rounded-lg px-3 py-1 placeholder:italic focus:outline-none focus:outline-blue-600"
               placeholder="Password"
             />
             <div id="error-message" hidden></div>
             <div className="flex text-sm w-full justify-between py-2 px-2 text-white">
-              <Link
-                className=" cursor-pointer sm:hover:text-red-400"
-                to={"/changePassword"}
-              >
+              <Link className="sm:hover:scale-110" to={"/resetPassword"}>
                 Forgot password?
               </Link>
-              <Link
-                className=" cursor-pointer sm:hover:text-red-400"
-                to={"/signup"}
-              >
+              <Link className="sm:hover:scale-110" to={"/signup"}>
                 Signup
               </Link>
             </div>
           </div>
         </div>
         <div
-          className="bg-blue-900 w-40 rounded-b-xl flex items-center justify-center text-white p-2 cursor-pointer shadow-inner sm:hover:bg-white sm:hover:text-blue-900 sm:hover:font-bold"
+          className="bg-blue-900 w-40 rounded-b-xl flex items-center justify-center text-white p-2 cursor-pointer shadow-inner sm:hover:bg-white sm:hover:text-blue-900 sm:hover:font-bold shadow-md shadow-white hover:shadow-none"
           onClick={(e) => loginDetails(e)}
         >
           Login
@@ -74,11 +68,12 @@ async function loginDetails(e) {
         email,
         password,
       });
-      if (result.data.success) window.location.href = "/home";
-      else {
-        displayMessage(result.data.message);
+      if (result.data.success) {
+        window.location.href = `/home?email=${email}`;
+      } else {
         document.getElementById("email").value = "";
         document.getElementById("password").value = "";
+        displayMessage(result.data.message);
       }
     }
   } catch (e) {

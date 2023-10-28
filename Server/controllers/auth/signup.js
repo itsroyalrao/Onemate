@@ -1,6 +1,5 @@
 import Auth from "../../models/auth/auth.js";
 import bcrypt from "bcrypt";
-import nodemailer from "nodemailer";
 
 const signupDetails = async (req, res) => {
   try {

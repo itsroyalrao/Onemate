@@ -4,7 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 import connectDB from "./db/connect.js";
 import authRoutes from "./routes/auth/auth.js";
-// import homeRoutes from "./routes/home/lists.js";
+import homeRoutes from "./routes/home/homepage.js";
+import profileRoutes from "./routes/profile/profile.js";
 
 const app = express();
 
@@ -12,7 +13,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/auth", authRoutes);
-// app.use("/home", homeRoutes);
+app.use("/home", homeRoutes);
+app.use("/profile", profileRoutes);
 
 const port = 3000;
 (async () => {
