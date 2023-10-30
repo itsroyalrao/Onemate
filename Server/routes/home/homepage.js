@@ -1,8 +1,8 @@
 import express from "express";
-import getFriends from "../../controllers/home/homepage.js";
+import { getFriends, getFriend } from "../../controllers/home/homepage.js";
 
 const router = express.Router(getFriends);
 
-router.route("/").get(getFriends);
+router.route("/").get(getFriends).post(getFriend);
 
 export default router;

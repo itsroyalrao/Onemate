@@ -10,4 +10,13 @@ const getFriends = async (req, res) => {
   }
 };
 
-export default getFriends;
+const getFriend = async (req, res) => {
+  try {
+    const user = await Auth.findOne({ _id: req.body.id });
+    res.json({ name: user.name, email: user.email });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export { getFriends, getFriend };
