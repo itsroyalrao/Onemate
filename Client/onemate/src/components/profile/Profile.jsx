@@ -26,7 +26,7 @@ function Profile() {
   const [confimLogout, setConfirmLogout] = useState(false);
   return (
     <>
-      <div className="bg-[rgb(39,39,39)] w-full min-h-screen flex items-center justify-center scroll-smooth">
+      <div className="bg-gradient-to-br from-blue-600 to-blue-400 w-full min-h-screen flex items-center justify-center scroll-smooth">
         <div
           id="profile-block"
           className="sm:bg-blue-900 w-full sm:w-[75%] md:w-[50%] sm:h-[480px] rounded-3xl flex flex-col items-center justify-between p-4"
@@ -64,11 +64,11 @@ function Profile() {
                 </div>
                 <div className="flex m-2 py-5 bg-blue-900 rounded-lg">
                   <div className="pl-3 text-xl">DOB :</div>
-                  <div className="pl-2 text-xl overflow-hidden">User One</div>
+                  <div className="pl-2 text-xl overflow-hidden">NA</div>
                 </div>
                 <div className="flex m-2 mb-4 py-5 bg-blue-900 rounded-lg">
                   <div className=" pl-3 text-xl">Phone :</div>
-                  <div className="pl-2 text-xl overflow-hidden">User One</div>
+                  <div className="pl-2 text-xl overflow-hidden">NA</div>
                 </div>
               </div>
             </div>

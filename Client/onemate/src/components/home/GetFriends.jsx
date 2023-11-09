@@ -17,5 +17,5 @@ export default function GetFriends({ setFriends, setLoading, email }) {
     };
 
     fetchData();
-  }, [email]);
+  }, []);
 }

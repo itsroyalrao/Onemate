@@ -2,7 +2,11 @@ import Auth from "../../models/auth/auth.js";
 
 const getFriends = async (req, res) => {
   try {
-    const users = await Auth.find({});
+    const userList = await Auth.find({});
+    const users = [];
+    userList.forEach((element) => {
+      if (element.email !== req.query.email) users.push(element);
+    });
 
     res.json({ users: users });
   } catch (e) {

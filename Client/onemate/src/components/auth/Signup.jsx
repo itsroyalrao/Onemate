@@ -9,7 +9,7 @@ function Signup() {
 
   return (
     <>
-      <div className="bg-[rgb(39,39,39)] min-h-screen flex flex-col items-center justify-center">
+      <div className="bg-gradient-to-br from-blue-600 to-blue-400 min-h-screen flex flex-col items-center justify-center">
         <div
           id="signup-block"
           className="w-[270px] h-[17rem] bg-blue-900 flex flex-col items-center rounded-3xl shadow-md shadow-white"

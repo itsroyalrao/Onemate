@@ -8,7 +8,8 @@ function Login() {
   }, []);
   return (
     <>
-      <div className="bg-[rgb(39,39,39)] min-h-screen flex flex-col items-center justify-center">
+      {/* <div className="bg-[rgb(39,39,39)] min-h-screen flex flex-col items-center justify-center"> */}
+      <div className="bg-gradient-to-br from-blue-600 to-blue-400 min-h-screen flex flex-col items-center justify-center">
         <div
           id="login-block"
           className="w-[270px] h-48 bg-blue-900 flex flex-col items-center rounded-3xl shadow-md shadow-white"

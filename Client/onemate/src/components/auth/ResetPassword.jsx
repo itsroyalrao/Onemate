@@ -3,7 +3,7 @@ import axios from "axios";
 function ResetPassword() {
   return (
     <>
-      <div className="bg-[rgb(39,39,39)] w-full min-h-screen flex flex-col items-center justify-center">
+      <div className="bg-gradient-to-br from-blue-600 to-blue-400 w-full min-h-screen flex flex-col items-center justify-center">
         <div
           id="reset-password-block"
           className="w-[270px] h-[9.5rem] bg-blue-900 flex flex-col items-center rounded-3xl shadow-md shadow-white"

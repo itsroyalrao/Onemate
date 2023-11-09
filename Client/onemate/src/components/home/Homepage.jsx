@@ -1,48 +1,35 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import GetFriends from "./GetFriends";
 
 function Homepage() {
   const location = useLocation();
   const email = new URLSearchParams(location.search).get("email");
 
-  const [friendName, setFriendName] = useState("");
-
-  useEffect(() => {
-    const msgInput = document.getElementById("message-input");
-    if (msgInput) {
-      msgInput.value = "";
-      msgInput.focus();
-    }
-  }, [friendName]);
-
   const [friends, setFriends] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:3000/home?email=${email}`
-        );
-        setFriends(response.data.users);
-        setLoading(false);
-      } catch (e) {
-        console.log(e);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [email]);
-
   return (
     <>
+      <GetFriends
+        setFriends={setFriends}
+        setLoading={setLoading}
+        email={email}
+      />
+
       <div className="w-full min-h-screen flex">
         <div className="flex flex-col w-full sm:min-w-[250px] sm:w-[300px] lg:min-w-[25%] bg-[rgb(39,39,39)]">
           <div className="flex items-center justify-between p-2 font-bold text-2xl text-white bg-blue-900 shadow-sm shadow-indigo-100 sticky top-0">
             <div className="px-3 cursor-default">Onemate</div>
             <div className="flex items-center">
+              {/* <div>
+                <img
+                  className="w-9 mx-2 p-1 rounded-2xl cursor-pointer sm:hidden"
+                  src="images/search.png"
+                  alt="Search"
+                  onClick={() => showInput()}
+                />
+              </div> */}
               {/* <div>
                 <Link>
                   <img
@@ -69,14 +56,14 @@ function Homepage() {
               </Link>
             </div>
           </div>
-          <div className="w-full flex justify-center">
+          {/* <div className="w-full flex justify-center">
             <input
               id="search-input"
               className="w-[90%] px-3 py-2 bg-[rgb(72,72,72)] text-white tracking-wide rounded-b-lg hidden sm:block focus:bg-[rgb(39,39,39)]"
               type="text"
               placeholder="Search friends..."
             />
-          </div>
+          </div> */}
           <div id="friends" className="mt-2">
             {loading ? (
               <p className="w-full text-white flex justify-center">
@@ -88,9 +75,6 @@ function Homepage() {
                   key={friend._id}
                   to={`/chat/${email}/${friend._id}`}
                   className="flex justify-center text-white py-5 font-bold text-lg bg-[rgb(48,48,48)] hover:bg-blue-900 mx-2 my-1 tracking-wide capitalize rounded-lg"
-                  onClick={() => {
-                    setFriendName(friend.name);
-                  }}
                 >
                   {friend.name}
                 </Link>
